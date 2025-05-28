@@ -1,0 +1,25 @@
+# Required schema version
+schemaVersion: 1.2
+
+# Incoming connection (API endpoint) configuration
+endpoints:
+  - name: lattfaktura-api
+    displayName: LattFaktura API
+    service:
+      basePath: /api # Base path for your API endpoints
+      port: 5000 # Must match Fastify's port (fastify.listen(5000))
+    type: REST # Your Fastify API is REST-based
+    networkVisibilities:
+      - Public # Accessible publicly
+      - Organization # Accessible within your org
+
+# Runtime configurations (environment variables, etc.)
+configurations:
+  env:
+    - name: NODE_ENV
+      valueFrom:
+        configForm:
+          displayName: Node Environment
+          type: string
+          defaultValue: production
+    # Add other env vars like database URLs here
