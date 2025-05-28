@@ -1,0 +1,10 @@
+component:
+  name: lattfaktura-backend
+  description: Fastify API for LattFaktura
+  type: service
+  build:
+    command: npm install && npm start # Install & start Fastify
+  endpoints:
+    - name: api
+      port: 5000 # Must match Fastify's port (fastify.listen(5000))
+      protocol: http
