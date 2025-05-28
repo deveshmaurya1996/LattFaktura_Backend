@@ -2,10 +2,7 @@ require("dotenv").config();
 const fastify = require("fastify")({ logger: true });
 
 fastify.register(require("@fastify/cors"), {
-  origin: [
-    "https://latt-faktura.vercel.app",
-    "https://lattfaktura-backend.onrender.com",
-  ],
+  origin: ["http://localhost:3000", "https://latt-faktura-frontend.vercel.app"],
   methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
   allowedHeaders: ["Content-Type", "Authorization"],
   credentials: true,
