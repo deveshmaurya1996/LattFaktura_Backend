@@ -2,7 +2,7 @@ require("dotenv").config();
 const fastify = require("fastify")({ logger: true });
 
 fastify.register(require("@fastify/cors"), {
-  origin: ["*"],
+  origin: ["http://localhost:3000", "https://lattfaktura.netlify.app"],
   methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
   allowedHeaders: ["Content-Type", "Authorization"],
   credentials: true,
