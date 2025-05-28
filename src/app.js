@@ -3,9 +3,8 @@ const fastify = require("fastify")({ logger: true });
 
 fastify.register(require("@fastify/cors"), {
   origin: [
-    "http://localhost:3000",
     "https://latt-faktura.vercel.app",
-    "https://lattfaktura.netlify.app",
+    "https://lattfaktura-backend.onrender.com",
   ],
   methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
   allowedHeaders: ["Content-Type", "Authorization"],
