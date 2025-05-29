@@ -3,7 +3,7 @@ const fastify = require("fastify")({ logger: true });
 
 fastify.register(require("@fastify/cors"), {
   origin: ["http://localhost:3000", "https://latt-faktura-frontend.vercel.app"],
-  methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+  methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS", "PATCH"],
   allowedHeaders: ["Content-Type", "Authorization"],
   credentials: true,
 });

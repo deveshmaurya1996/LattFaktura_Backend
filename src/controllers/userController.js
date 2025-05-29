@@ -120,3 +120,34 @@ exports.getProfile = async (request, reply) => {
     reply.code(500).send({ error: "Unable to fetch profile" });
   }
 };
+
+exports.changeLanguagePreference = async (request, reply) => {
+  const User = request.server.db.User;
+
+  try {
+    const userId = request.user.id;
+    const { languagePreference } = request.body;
+
+    if (!["en", "sv"].includes(languagePreference)) {
+      return reply
+        .status(400)
+        .send({ error: "Invalid language preference. Must be 'en' or 'sv'." });
+    }
+
+    const user = await User.findByPk(userId);
+    if (!user) {
+      return reply.status(404).send({ error: "User not found" });
+    }
+
+    user.languagepreference = languagePreference;
+    await user.save();
+
+    reply.status(200).send({
+      message: "Language preference updated successfully",
+      languagePreference: user.languagepreference,
+    });
+  } catch (err) {
+    console.error("🔥 Change Language Preference Error:", err);
+    reply.status(500).send({ error: "Unable to change language preference" });
+  }
+};

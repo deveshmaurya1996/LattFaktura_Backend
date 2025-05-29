@@ -18,6 +18,11 @@ module.exports = (sequelize, DataTypes) => {
       },
       phoneNumber: { type: DataTypes.STRING, allowNull: false },
       passwordHash: { type: DataTypes.STRING, allowNull: false },
+      languagepreference: {
+        type: DataTypes.ENUM("en", "sv"),
+        allowNull: false,
+        defaultValue: "en",
+      },
     },
     {
       tableName: "users",
