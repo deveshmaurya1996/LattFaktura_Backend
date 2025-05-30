@@ -13,13 +13,11 @@ fastify.register(require("@fastify/formbody"));
 const sequelizePlugin = require("./plugins/sequelize");
 const authPlugin = require("./plugins/auth");
 const userRoutes = require("./routes/userRoutes");
-const terms = require("./routes/terms");
 const product = require("./routes/product");
 
 fastify.register(sequelizePlugin);
 fastify.register(authPlugin);
 fastify.register(userRoutes);
-fastify.register(terms);
 fastify.register(product);
 
 const start = async () => {
